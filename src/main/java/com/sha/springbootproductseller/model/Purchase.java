@@ -21,7 +21,7 @@ public class Purchase {
     private User user;
 
     @Column(name = "product_id", nullable = false)
-    private Long product_id;
+    private Long productId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
