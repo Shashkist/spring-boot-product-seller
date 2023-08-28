@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/custom.css" rel="stylesheet">
+    <!-- Add any necessary CSS or Bootstrap links here -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container p-3">
+    <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
+    <div th:if="${infoMessage}" class="alert alert-success" th:text="${infoMessage}"></div>
+
+
+
+    <div th:if="${products.size() > 0}" class="row">
+        <div th:each="product : ${products}" class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 th:text="${product.name}" class="text-uppercase"></h3>
+                    <p th:text="${product.description}" class="text-muted"></p>
+                    <i class="fa fa-cart-plus"></i>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-6" th:text="'$' + ${product.price}"></div>
+                        <div class="col-md-6">
+                            <button class="btn btn-success btn-block"
+                                    th:attr="onclick='purchase(\'' + ${product.id} + '\', \'' + ${product.price} + '\')'">
+                                Buy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:if="${products.size == 0}">No Products to show</div>
+</div>
+
+<!-- Add any necessary JavaScript scripts here -->
+
+
+<script th:inline="javascript">
+
+
+        function purchase(productId, productPrice) {
+
+            // Implement the JavaScript code to handle product purchase here
+        }
+    </script>
+</body>
+</html>

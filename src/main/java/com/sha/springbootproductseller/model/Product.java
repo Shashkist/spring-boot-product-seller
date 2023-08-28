@@ -28,8 +28,8 @@ public class Product {
     @Column(name = "create_time", nullable = false)
     private LocalDateTime createTime;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
-    private Set<Purchase> purchaseList;
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+//    private Set<Purchase> purchaseList;
 
 
 

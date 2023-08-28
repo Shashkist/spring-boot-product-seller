@@ -73,6 +73,18 @@ class SpringBootProductSellerApplicationTests {
 	}
 
 
+	@Test
+	void switchString() {
+		String text = "abcd";
+		String switchedText = "";
+		for (int i = 0; i < text.length(); i++) {
+			switchedText = text.charAt(i)+switchedText;
+		}
+		System.out.println(switchedText);
+
+	}
+
+
 
 
 }

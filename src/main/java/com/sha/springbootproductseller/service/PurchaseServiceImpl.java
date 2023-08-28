@@ -4,10 +4,11 @@ import com.sha.springbootproductseller.model.Purchase;
 import com.sha.springbootproductseller.repository.PurchaseRepository;
 import com.sha.springbootproductseller.repository.projection.PurchaseItem;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
+@Service
 public class PurchaseServiceImpl implements PurchaseService {
 
     @Autowired

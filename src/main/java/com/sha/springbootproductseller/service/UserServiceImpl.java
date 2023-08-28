@@ -4,7 +4,6 @@ import com.sha.springbootproductseller.model.Role;
 import com.sha.springbootproductseller.model.User;
 import com.sha.springbootproductseller.repository.UserRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -15,16 +14,16 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
-    private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
+
     }
 
     @Override
     public User saveUser(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+//        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(user.getPassword());
         user.setRole(Role.USER);
         user.setCreateTime(LocalDateTime.now());
 
